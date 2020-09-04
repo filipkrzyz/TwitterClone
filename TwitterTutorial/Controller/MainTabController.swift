@@ -13,6 +13,15 @@ class MainTabController: UITabBarController {
 
     // MARK: - Properties
     
+    var user: User? {
+        didSet {
+            guard let navigationController = viewControllers?[0] as? UINavigationController else { return }
+            guard let feedController = navigationController.viewControllers.first as? FeedController else { return }
+            
+            feedController.user = user
+        }
+    }
+    
     let actionButton: UIButton = {
         let button = UIButton(type: .system)
         button.tintColor = .white
@@ -35,7 +44,9 @@ class MainTabController: UITabBarController {
     // MARK: - API
     
     func fetchUser() {
-        UserService.shared.fetchUser()
+        UserService.shared.fetchUser { user in
+            self.user = user
+        }
     }
     
     func authenticateUserAndConfigureUI() {
@@ -88,7 +99,8 @@ class MainTabController: UITabBarController {
         let conversations = ConversationsController()
         let convarsationsNavController = templateNavigationController(image: UIImage(named: "ic_mail_outline_white_2x-1"), rootController: conversations)
         
-        viewControllers = [feedNavController, exploreNavController, notificationsNavController, convarsationsNavController]
+        viewControllers = [feedNavController, exploreNavController,
+                           notificationsNavController, convarsationsNavController]
     }
     
     func templateNavigationController(image: UIImage?, rootController: UIViewController) -> UINavigationController {
