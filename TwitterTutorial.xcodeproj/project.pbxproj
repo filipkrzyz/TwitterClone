@@ -26,6 +26,7 @@
 		DCA3C76D2500E9E400E7D30B /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCA3C76C2500E9E400E7D30B /* Constants.swift */; };
 		DCA3C76F2501246C00E7D30B /* AuthService.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCA3C76E2501246C00E7D30B /* AuthService.swift */; };
 		DCA3C77125023B4C00E7D30B /* UserService.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCA3C77025023B4C00E7D30B /* UserService.swift */; };
+		DCA3C7732502443100E7D30B /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCA3C7722502443100E7D30B /* User.swift */; };
 		E42F5A0E3B4E7D054CE7A162 /* Pods_TwitterTutorial.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8A6E87F7F72F586A05108EC8 /* Pods_TwitterTutorial.framework */; };
 /* End PBXBuildFile section */
 
@@ -55,6 +56,7 @@
 		DCA3C76C2500E9E400E7D30B /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		DCA3C76E2501246C00E7D30B /* AuthService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthService.swift; sourceTree = "<group>"; };
 		DCA3C77025023B4C00E7D30B /* UserService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserService.swift; sourceTree = "<group>"; };
+		DCA3C7722502443100E7D30B /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -175,6 +177,7 @@
 		DCA3C75524FD2DBF00E7D30B /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				DCA3C7722502443100E7D30B /* User.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -309,6 +312,7 @@
 				DCA3C73924FD2D2900E7D30B /* AppDelegate.swift in Sources */,
 				DCA3C75F24FD340C00E7D30B /* ConversationsController.swift in Sources */,
 				DCA3C75924FD326C00E7D30B /* FeedController.swift in Sources */,
+				DCA3C7732502443100E7D30B /* User.swift in Sources */,
 				DCA3C75724FD2EDE00E7D30B /* MainTabController.swift in Sources */,
 				DCA3C76624FD592A00E7D30B /* RegistrationController.swift in Sources */,
 				DCA3C76D2500E9E400E7D30B /* Constants.swift in Sources */,

@@ -22,6 +22,9 @@ struct UserService {
             
             guard let username = dictionary["username"] as? String else { return }
             print("DEBUG: Username is: \(username)")
+            
+            let user = User(uid: uid, dictionary: dictionary)
+            print("DEBUG: Username: \(user.username)")
         }
     }
 }

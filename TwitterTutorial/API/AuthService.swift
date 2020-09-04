@@ -47,14 +47,14 @@ struct AuthService {
                         return
                     }
                     
-                    guard let uID = result?.user.uid else { return }
+                    guard let uid = result?.user.uid else { return }
                     
                     let values = ["email": email,
                                   "username": username,
                                   "fullname": fullname,
                                   "profileImageUrl": profileImageUrl]
                     
-                    REF_USERS.child(uID).updateChildValues(values, withCompletionBlock: completion)
+                    REF_USERS.child(uid).updateChildValues(values, withCompletionBlock: completion)
                 }
             }
         }
