@@ -28,7 +28,7 @@ class MainTabController: UITabBarController {
         super.viewDidLoad()
 
         view.backgroundColor = .twitterBlue
-        // logOut()
+        //logOut()
         authenticateUserAndConfigureUI()
     }
     
@@ -53,6 +53,7 @@ class MainTabController: UITabBarController {
         } catch let error {
             print("DEBUG: Failed to sign out: \(error)")
         }
+        print("DEBUG: Logged out")
     }
     
     // MARK: - Selectors

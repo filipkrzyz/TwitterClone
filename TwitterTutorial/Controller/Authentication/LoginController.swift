@@ -81,7 +81,13 @@ class LoginController: UIViewController {
                 return
             }
             
-            print("DEBUG: Successful Log in")
+            guard let window = UIApplication.shared.windows.first(where: { $0.isKeyWindow }) else { return }
+            
+            guard let mainTabController = window.rootViewController as? MainTabController else { return }
+            
+            mainTabController.authenticateUserAndConfigureUI()
+            
+            self.dismiss(animated: true, completion: nil)
         }
     }
     
