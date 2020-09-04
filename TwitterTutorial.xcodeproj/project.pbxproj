@@ -25,6 +25,7 @@
 		DCA3C76A24FFE4D600E7D30B /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = DCA3C76924FFE4D600E7D30B /* GoogleService-Info.plist */; };
 		DCA3C76D2500E9E400E7D30B /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCA3C76C2500E9E400E7D30B /* Constants.swift */; };
 		DCA3C76F2501246C00E7D30B /* AuthService.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCA3C76E2501246C00E7D30B /* AuthService.swift */; };
+		DCA3C77125023B4C00E7D30B /* UserService.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCA3C77025023B4C00E7D30B /* UserService.swift */; };
 		E42F5A0E3B4E7D054CE7A162 /* Pods_TwitterTutorial.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8A6E87F7F72F586A05108EC8 /* Pods_TwitterTutorial.framework */; };
 /* End PBXBuildFile section */
 
@@ -53,6 +54,7 @@
 		DCA3C76B24FFE4DA00E7D30B /* GoogleService-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		DCA3C76C2500E9E400E7D30B /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		DCA3C76E2501246C00E7D30B /* AuthService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthService.swift; sourceTree = "<group>"; };
+		DCA3C77025023B4C00E7D30B /* UserService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserService.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -138,6 +140,7 @@
 			isa = PBXGroup;
 			children = (
 				DCA3C76E2501246C00E7D30B /* AuthService.swift */,
+				DCA3C77025023B4C00E7D30B /* UserService.swift */,
 			);
 			path = API;
 			sourceTree = "<group>";
@@ -312,6 +315,7 @@
 				DCA3C75D24FD33F500E7D30B /* NotificationsController.swift in Sources */,
 				DCA3C73B24FD2D2900E7D30B /* SceneDelegate.swift in Sources */,
 				DCA3C75B24FD33E200E7D30B /* ExploreController.swift in Sources */,
+				DCA3C77125023B4C00E7D30B /* UserService.swift in Sources */,
 				DCA3C76424FD588300E7D30B /* LoginController.swift in Sources */,
 				DCA3C76824FE455D00E7D30B /* Utilitites.swift in Sources */,
 				DCA3C76F2501246C00E7D30B /* AuthService.swift in Sources */,
