@@ -27,6 +27,7 @@
 		DCA3C76F2501246C00E7D30B /* AuthService.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCA3C76E2501246C00E7D30B /* AuthService.swift */; };
 		DCA3C77125023B4C00E7D30B /* UserService.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCA3C77025023B4C00E7D30B /* UserService.swift */; };
 		DCA3C7732502443100E7D30B /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCA3C7722502443100E7D30B /* User.swift */; };
+		DCA3C7752502698700E7D30B /* UploadTweetController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCA3C7742502698700E7D30B /* UploadTweetController.swift */; };
 		E42F5A0E3B4E7D054CE7A162 /* Pods_TwitterTutorial.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8A6E87F7F72F586A05108EC8 /* Pods_TwitterTutorial.framework */; };
 /* End PBXBuildFile section */
 
@@ -57,6 +58,7 @@
 		DCA3C76E2501246C00E7D30B /* AuthService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthService.swift; sourceTree = "<group>"; };
 		DCA3C77025023B4C00E7D30B /* UserService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserService.swift; sourceTree = "<group>"; };
 		DCA3C7722502443100E7D30B /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		DCA3C7742502698700E7D30B /* UploadTweetController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UploadTweetController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -156,6 +158,7 @@
 				DCA3C75A24FD33E200E7D30B /* ExploreController.swift */,
 				DCA3C75C24FD33F500E7D30B /* NotificationsController.swift */,
 				DCA3C75E24FD340C00E7D30B /* ConversationsController.swift */,
+				DCA3C7742502698700E7D30B /* UploadTweetController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -311,6 +314,7 @@
 				DCA3C76124FD4C2F00E7D30B /* Extensions.swift in Sources */,
 				DCA3C73924FD2D2900E7D30B /* AppDelegate.swift in Sources */,
 				DCA3C75F24FD340C00E7D30B /* ConversationsController.swift in Sources */,
+				DCA3C7752502698700E7D30B /* UploadTweetController.swift in Sources */,
 				DCA3C75924FD326C00E7D30B /* FeedController.swift in Sources */,
 				DCA3C7732502443100E7D30B /* User.swift in Sources */,
 				DCA3C75724FD2EDE00E7D30B /* MainTabController.swift in Sources */,
