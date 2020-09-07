@@ -10,7 +10,9 @@ import Foundation
 import UIKit
 import SDWebImage
 
-class FeedController: UIViewController {
+private let tweetCellIdentifier = "TweetCell"
+
+class FeedController: UICollectionViewController {
     
     // MARK: - Properties
     
@@ -42,6 +44,9 @@ class FeedController: UIViewController {
     func configureUI() {
         view.backgroundColor = .white
         
+        collectionView.backgroundColor = .white
+        collectionView.register(TweetCell.self, forCellWithReuseIdentifier: tweetCellIdentifier)
+        
         let imageView = UIImageView(image: UIImage(named: "twitter_logo_blue"))
         imageView.contentMode = .scaleAspectFit
         imageView.setDimensions(width: 44, height: 44)
@@ -59,5 +64,29 @@ class FeedController: UIViewController {
         profileImageView.sd_setImage(with: user.profileImageUrl, completed: nil)
         
         navigationItem.leftBarButtonItem = UIBarButtonItem(customView: profileImageView)
+    }
+}
+
+// MARK: - UICollectionViewDelegate/DataSource
+
+extension FeedController {
+    
+    override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return 5
+    }
+    
+    override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: tweetCellIdentifier, for: indexPath) as! TweetCell
+        return cell
+    }
+}
+
+// MARK: - UICollectionViewDelegateFlowLayout
+
+
+extension FeedController: UICollectionViewDelegateFlowLayout {
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        return CGSize(width: view.frame.width, height: 120)
     }
 }
