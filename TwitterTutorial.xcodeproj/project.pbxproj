@@ -32,6 +32,7 @@
 		DCA3C7792503BC6B00E7D30B /* TweetService.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCA3C7782503BC6B00E7D30B /* TweetService.swift */; };
 		DCA3C77B2503D07B00E7D30B /* Tweet.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCA3C77A2503D07B00E7D30B /* Tweet.swift */; };
 		DCA3C77D25062C8600E7D30B /* TweetCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCA3C77C25062C8600E7D30B /* TweetCell.swift */; };
+		DCA3C77F2506693700E7D30B /* TweetViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCA3C77E2506693700E7D30B /* TweetViewModel.swift */; };
 		E42F5A0E3B4E7D054CE7A162 /* Pods_TwitterTutorial.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8A6E87F7F72F586A05108EC8 /* Pods_TwitterTutorial.framework */; };
 /* End PBXBuildFile section */
 
@@ -67,6 +68,7 @@
 		DCA3C7782503BC6B00E7D30B /* TweetService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TweetService.swift; sourceTree = "<group>"; };
 		DCA3C77A2503D07B00E7D30B /* Tweet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tweet.swift; sourceTree = "<group>"; };
 		DCA3C77C25062C8600E7D30B /* TweetCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TweetCell.swift; sourceTree = "<group>"; };
+		DCA3C77E2506693700E7D30B /* TweetViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TweetViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -175,6 +177,7 @@
 		DCA3C75324FD2DBD00E7D30B /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
+				DCA3C77E2506693700E7D30B /* TweetViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -334,6 +337,7 @@
 				DCA3C75724FD2EDE00E7D30B /* MainTabController.swift in Sources */,
 				DCA3C76624FD592A00E7D30B /* RegistrationController.swift in Sources */,
 				DCA3C77B2503D07B00E7D30B /* Tweet.swift in Sources */,
+				DCA3C77F2506693700E7D30B /* TweetViewModel.swift in Sources */,
 				DCA3C76D2500E9E400E7D30B /* Constants.swift in Sources */,
 				DCA3C75D24FD33F500E7D30B /* NotificationsController.swift in Sources */,
 				DCA3C73B24FD2D2900E7D30B /* SceneDelegate.swift in Sources */,
