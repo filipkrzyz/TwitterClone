@@ -33,6 +33,7 @@
 		DCA3C77B2503D07B00E7D30B /* Tweet.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCA3C77A2503D07B00E7D30B /* Tweet.swift */; };
 		DCA3C77D25062C8600E7D30B /* TweetCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCA3C77C25062C8600E7D30B /* TweetCell.swift */; };
 		DCA3C77F2506693700E7D30B /* TweetViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCA3C77E2506693700E7D30B /* TweetViewModel.swift */; };
+		DCA3C78125077C9E00E7D30B /* ProfileController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCA3C78025077C9E00E7D30B /* ProfileController.swift */; };
 		E42F5A0E3B4E7D054CE7A162 /* Pods_TwitterTutorial.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8A6E87F7F72F586A05108EC8 /* Pods_TwitterTutorial.framework */; };
 /* End PBXBuildFile section */
 
@@ -69,6 +70,7 @@
 		DCA3C77A2503D07B00E7D30B /* Tweet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tweet.swift; sourceTree = "<group>"; };
 		DCA3C77C25062C8600E7D30B /* TweetCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TweetCell.swift; sourceTree = "<group>"; };
 		DCA3C77E2506693700E7D30B /* TweetViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TweetViewModel.swift; sourceTree = "<group>"; };
+		DCA3C78025077C9E00E7D30B /* ProfileController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -170,6 +172,7 @@
 				DCA3C75C24FD33F500E7D30B /* NotificationsController.swift */,
 				DCA3C75E24FD340C00E7D30B /* ConversationsController.swift */,
 				DCA3C7742502698700E7D30B /* UploadTweetController.swift */,
+				DCA3C78025077C9E00E7D30B /* ProfileController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -334,6 +337,7 @@
 				DCA3C75924FD326C00E7D30B /* FeedController.swift in Sources */,
 				DCA3C7772503A2E100E7D30B /* CaptionTextView.swift in Sources */,
 				DCA3C7732502443100E7D30B /* User.swift in Sources */,
+				DCA3C78125077C9E00E7D30B /* ProfileController.swift in Sources */,
 				DCA3C75724FD2EDE00E7D30B /* MainTabController.swift in Sources */,
 				DCA3C76624FD592A00E7D30B /* RegistrationController.swift in Sources */,
 				DCA3C77B2503D07B00E7D30B /* Tweet.swift in Sources */,
