@@ -37,6 +37,13 @@ class FeedController: UICollectionViewController {
         fetchTweets()
     }
     
+    // Something is wrong here because when we click back, it shows a dark navbar with a back button for a second
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        navigationController?.navigationBar.barStyle = .default
+        navigationController?.navigationBar.isHidden = false
+    }
+    
     // MARK: - API
     
     func fetchTweets() {

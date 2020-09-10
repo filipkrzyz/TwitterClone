@@ -8,7 +8,7 @@
 
 import UIKit
 
-protocol TweetCellDelegate: class {
+protocol TweetCellDelegate: AnyObject {
     func handleProfileImageTapped(_ cell: TweetCell)
 }
 

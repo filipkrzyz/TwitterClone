@@ -94,6 +94,15 @@ extension ProfileController {
                                                                      withReuseIdentifier: profileHeaderIdentifier,
                                                                      for: indexPath) as! ProfileHeader
         header.user = user
+        header.delegate = self
         return header
+    }
+}
+
+// MARK: - ProfileHeaderDelegate
+
+extension ProfileController: ProfileHeaderDelegate {
+    func handleDismissal() {
+        navigationController?.popViewController(animated: true)
     }
 }

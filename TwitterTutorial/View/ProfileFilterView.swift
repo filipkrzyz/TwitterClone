@@ -10,7 +10,7 @@ import UIKit
 
 private let filterCellReuseIdentifier = "FilterCell"
 
-protocol ProfileFilterViewDelegate: class {
+protocol ProfileFilterViewDelegate: AnyObject {
     func filterView(_ view: ProfileFilterView, didSelec indexPath: IndexPath)
 }
 
