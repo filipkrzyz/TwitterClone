@@ -50,4 +50,12 @@ struct UserService {
             REF_USER_FOLLOWERS.child(uid).child(currentUid).removeValue(completionBlock: completion)
         }
     }
+    
+    func checkIfUserIsFollowed(uid: String, completion: @escaping(Bool) -> Void) {
+        guard let currentUid = Auth.auth().currentUser?.uid else { return }
+        
+        REF_USER_FOLLOWING.child(currentUid).child(uid).observeSingleEvent(of: .value) { (snapshot) in
+            completion(snapshot.exists())
+        }
+    }
 }
