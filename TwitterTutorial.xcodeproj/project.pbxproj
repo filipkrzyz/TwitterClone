@@ -39,6 +39,8 @@
 		DCA3C78125077C9E00E7D30B /* ProfileController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCA3C78025077C9E00E7D30B /* ProfileController.swift */; };
 		DCA3C7832507903700E7D30B /* ProfileHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCA3C7822507903700E7D30B /* ProfileHeader.swift */; };
 		DCA3C7852507AC5600E7D30B /* ProfileFilterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCA3C7842507AC5600E7D30B /* ProfileFilterView.swift */; };
+		DCD06A4C2524D12000012E7F /* TweetController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCD06A4B2524D12000012E7F /* TweetController.swift */; };
+		DCD06A4E2524D62000012E7F /* TweetHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCD06A4D2524D62000012E7F /* TweetHeader.swift */; };
 		E42F5A0E3B4E7D054CE7A162 /* Pods_TwitterTutorial.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8A6E87F7F72F586A05108EC8 /* Pods_TwitterTutorial.framework */; };
 /* End PBXBuildFile section */
 
@@ -81,6 +83,8 @@
 		DCA3C78025077C9E00E7D30B /* ProfileController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileController.swift; sourceTree = "<group>"; };
 		DCA3C7822507903700E7D30B /* ProfileHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileHeader.swift; sourceTree = "<group>"; };
 		DCA3C7842507AC5600E7D30B /* ProfileFilterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileFilterView.swift; sourceTree = "<group>"; };
+		DCD06A4B2524D12000012E7F /* TweetController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TweetController.swift; sourceTree = "<group>"; };
+		DCD06A4D2524D62000012E7F /* TweetHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TweetHeader.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -183,6 +187,7 @@
 				DCA3C75E24FD340C00E7D30B /* ConversationsController.swift */,
 				DCA3C7742502698700E7D30B /* UploadTweetController.swift */,
 				DCA3C78025077C9E00E7D30B /* ProfileController.swift */,
+				DCD06A4B2524D12000012E7F /* TweetController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -205,6 +210,7 @@
 				DCA3C7842507AC5600E7D30B /* ProfileFilterView.swift */,
 				DC2EE76325090E0600D2CAEA /* ProfileFilterCell.swift */,
 				DC0A9BC72521D5B70054CECA /* UserCell.swift */,
+				DCD06A4D2524D62000012E7F /* TweetHeader.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -355,6 +361,7 @@
 				DCA3C7832507903700E7D30B /* ProfileHeader.swift in Sources */,
 				DCA3C7732502443100E7D30B /* User.swift in Sources */,
 				DC2EE76625092B5500D2CAEA /* ProfileHeaderViewModel.swift in Sources */,
+				DCD06A4E2524D62000012E7F /* TweetHeader.swift in Sources */,
 				DCA3C78125077C9E00E7D30B /* ProfileController.swift in Sources */,
 				DCA3C75724FD2EDE00E7D30B /* MainTabController.swift in Sources */,
 				DCA3C76624FD592A00E7D30B /* RegistrationController.swift in Sources */,
@@ -362,6 +369,7 @@
 				DC2EE76425090E0600D2CAEA /* ProfileFilterCell.swift in Sources */,
 				DCA3C77F2506693700E7D30B /* TweetViewModel.swift in Sources */,
 				DCA3C76D2500E9E400E7D30B /* Constants.swift in Sources */,
+				DCD06A4C2524D12000012E7F /* TweetController.swift in Sources */,
 				DCA3C75D24FD33F500E7D30B /* NotificationsController.swift in Sources */,
 				DC0A9BC82521D5B70054CECA /* UserCell.swift in Sources */,
 				DCA3C73B24FD2D2900E7D30B /* SceneDelegate.swift in Sources */,
