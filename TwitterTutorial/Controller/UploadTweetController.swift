@@ -68,20 +68,13 @@ class UploadTweetController: UIViewController {
         super.viewDidLoad()
         
         configureUI()
-        
-        switch uploadTweetConfiguration {
-        case .tweet:
-            print("DEBUG: Config is tweet")
-        case .reply(let tweet):
-            print("DEBUG: Config is reply with: \(tweet.caption)")
-        }
     }
     
     // MARK: - Selectors
     
     @objc func handleUploadTweet() {
         guard let caption = captionTextView.text else { return }
-        TweetService.shared.uploadTweet(caption: caption) { (error, reerence) in
+        TweetService.shared.uploadTweet(caption: caption, config: uploadTweetConfiguration) { (error, reerence) in
             if let error = error {
                 print("DEBUG: Uploading tweet failed with error: \(error)")
             }
