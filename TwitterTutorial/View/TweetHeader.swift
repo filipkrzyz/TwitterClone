@@ -105,9 +105,9 @@ class TweetHeader: UICollectionReusableView {
         return view
     }()
     
-    private lazy var commentButton: UIButton = {
+    private lazy var replyButton: UIButton = {
         let button = self.createButton(withImageName: "comment")
-        button.addTarget(self, action: #selector(handleCommentTapped), for: .touchUpInside)
+        button.addTarget(self, action: #selector(handleReplyTapped), for: .touchUpInside)
         return button
     }()
     
@@ -148,7 +148,7 @@ class TweetHeader: UICollectionReusableView {
         
         addSubview(captionLabel)
         captionLabel.anchor(top: stack.bottomAnchor, left: leftAnchor, right: rightAnchor,
-                            paddingTop: 20, paddingLeft: 16, paddingRight: 16)
+                            paddingTop: 12, paddingLeft: 16, paddingRight: 16)
         
         addSubview(dateLabel)
         dateLabel.anchor(top: captionLabel.bottomAnchor, left: leftAnchor,
@@ -161,9 +161,9 @@ class TweetHeader: UICollectionReusableView {
         addSubview(statsView)
         statsView.anchor(top: dateLabel.bottomAnchor,
                          left: leftAnchor, right: rightAnchor,
-                         paddingTop: 20, height: 40)
+                         paddingTop: 12, height: 40)
         
-        let actionStack = UIStackView(arrangedSubviews: [commentButton, retweetButton,
+        let actionStack = UIStackView(arrangedSubviews: [replyButton, retweetButton,
                                                          likeButton, shareButton])
         actionStack.spacing = 72
         
@@ -187,8 +187,8 @@ class TweetHeader: UICollectionReusableView {
         print("DEBUG: show action sheet")
     }
     
-    @objc func handleCommentTapped() {
-        print("DEBUG: Comment button tapped")
+    @objc func handleReplyTapped() {
+        print("DEBUG: Reply button tapped")
     }
     
     @objc func handleRetweetTapped() {

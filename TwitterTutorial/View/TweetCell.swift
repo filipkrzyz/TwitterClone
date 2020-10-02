@@ -10,6 +10,7 @@ import UIKit
 
 protocol TweetCellDelegate: AnyObject {
     func handleProfileImageTapped(_ cell: TweetCell)
+    func handleReplyTapped(_ cell: TweetCell)
 }
 
 class TweetCell: UICollectionViewCell {
@@ -49,16 +50,16 @@ class TweetCell: UICollectionViewCell {
         return label
     }()
     
-    private let commentButton: UIButton = {
+    private lazy var replyButton: UIButton = {
         let button = UIButton(type: .system)
         button.setImage(UIImage(named: "comment"), for: .normal)
         button.tintColor = .darkGray
         button.setDimensions(width: 20, height: 20)
-        button.addTarget(self, action: #selector(handleCommentTapped), for: .touchUpInside)
+        button.addTarget(self, action: #selector(handleReplyTapped), for: .touchUpInside)
         return button
     }()
     
-    private let retweetButton: UIButton = {
+    private lazy var retweetButton: UIButton = {
         let button = UIButton(type: .system)
         button.setImage(UIImage(named: "retweet"), for: .normal)
         button.tintColor = .darkGray
@@ -67,7 +68,7 @@ class TweetCell: UICollectionViewCell {
         return button
     }()
     
-    private let likeButton: UIButton = {
+    private lazy var likeButton: UIButton = {
         let button = UIButton(type: .system)
         button.setImage(UIImage(named: "like"), for: .normal)
         button.tintColor = .darkGray
@@ -76,7 +77,7 @@ class TweetCell: UICollectionViewCell {
         return button
     }()
     
-    private let shareButton: UIButton = {
+    private lazy var shareButton: UIButton = {
         let button = UIButton(type: .system)
         button.setImage(UIImage(named: "share"), for: .normal)
         button.tintColor = .darkGray
@@ -107,7 +108,7 @@ class TweetCell: UICollectionViewCell {
         stack.anchor(top: profileImageView.topAnchor, left: profileImageView.rightAnchor,
                      right: rightAnchor, paddingLeft: 12, paddingRight: 12)
         
-        let actionStack = UIStackView(arrangedSubviews: [commentButton, retweetButton,
+        let actionStack = UIStackView(arrangedSubviews: [replyButton, retweetButton,
                                                          likeButton, shareButton])
         actionStack.axis = .horizontal
         actionStack.spacing = 72
@@ -134,8 +135,9 @@ class TweetCell: UICollectionViewCell {
         delegate?.handleProfileImageTapped(self)
     }
     
-    @objc func handleCommentTapped() {
-        print("DEBUG: Comment tapped")
+    @objc func handleReplyTapped() {
+        print("DEBUG: Reply tapped")
+        delegate?.handleReplyTapped(self)
     }
     
     @objc func handleRetweetTapped() {
