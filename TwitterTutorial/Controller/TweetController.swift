@@ -16,6 +16,11 @@ class TweetController: UICollectionViewController {
     // MARK: - Properties
     
     private let tweet: Tweet
+    private var replies = [Tweet]() {
+        didSet {
+            collectionView.reloadData()
+        }
+    }
     
     // MARK: - Lifecycle
     
@@ -32,10 +37,20 @@ class TweetController: UICollectionViewController {
         super.viewDidLoad()
         
         configureCollectionView()
+        fetchReplies()
         
         print("DEBUG: Tweet caption is: \(tweet.caption)")
     }
     
+    // MARK: - API
+
+    func fetchReplies() {
+        TweetService.shared.fetchReplies(forTweet: tweet) { (replies) in
+            self.replies = replies
+        }
+    }
+    
+    // MARK: - Helpers
     func configureCollectionView() {
         collectionView.backgroundColor = .white
         
@@ -51,11 +66,12 @@ class TweetController: UICollectionViewController {
 
 extension TweetController {
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 3
+        return replies.count
     }
     
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: tweetCellIdentifier, for: indexPath) as! TweetCell
+        cell.tweet = replies[indexPath.row]
         return cell
     }
 }

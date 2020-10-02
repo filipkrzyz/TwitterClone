@@ -12,7 +12,7 @@ struct TweetService {
     
     static let shared = TweetService()
     
-    func uploadTweet(caption: String, config: UploadTweetConfiguration, completion: @escaping(Error?, DatabaseReference) -> Void) {
+    func uploadTweet(caption: String, config: UploadTweetConfiguration, completion: @escaping(DatabaseCompletion)) {
         guard let uid = Auth.auth().currentUser?.uid else { return }
         
         let values = ["caption": caption,
@@ -67,6 +67,22 @@ struct TweetService {
                     tweets.append(tweet)
                     completion(tweets)
                 }
+            }
+        }
+    }
+    
+    func fetchReplies(forTweet tweet: Tweet, completion: @escaping([Tweet]) -> Void) {
+        var replies = [Tweet]()
+        
+        REF_TWEET_REPLIES.child(tweet.tweetID).observe(.childAdded) { (snapshot) in
+            guard let dictionary = snapshot.value as? [String: AnyObject] else { return }
+            guard let uid = dictionary["uid"] as? String else { return }
+            
+            UserService.shared.fetchUser(uid: uid) { (user) in
+                let tweetID = snapshot.key
+                let tweet = Tweet(user: user, tweetID: tweetID, dictionary: dictionary)
+                replies.append(tweet)
+                completion(replies)
             }
         }
     }
