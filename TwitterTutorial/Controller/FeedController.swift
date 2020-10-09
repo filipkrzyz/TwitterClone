@@ -133,6 +133,9 @@ extension FeedController: TweetCellDelegate {
             cell.tweet?.isLiked.toggle()
             let likesCount = tweet.isLiked ? tweet.likesCount - 1 : tweet.likesCount + 1
             cell.tweet?.likesCount = likesCount
+            
+            guard !tweet.isLiked else { return }
+            NotificationService.shared.uploadNotification(type: .like)
         }
     }
     

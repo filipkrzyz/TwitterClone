@@ -15,6 +15,8 @@
 		DC4B1C7A252B1E6D00D7DD64 /* ActionSheetLauncher.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC4B1C79252B1E6D00D7DD64 /* ActionSheetLauncher.swift */; };
 		DC4B1C7C252B341C00D7DD64 /* ActionSheetCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC4B1C7B252B341C00D7DD64 /* ActionSheetCell.swift */; };
 		DC4B1C7E252B45A000D7DD64 /* ActionSheetViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC4B1C7D252B45A000D7DD64 /* ActionSheetViewModel.swift */; };
+		DC4B1C802530954700D7DD64 /* Notification.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC4B1C7F2530954700D7DD64 /* Notification.swift */; };
+		DC4B1C82253097B300D7DD64 /* NotificationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC4B1C81253097B300D7DD64 /* NotificationService.swift */; };
 		DCA3C73924FD2D2900E7D30B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCA3C73824FD2D2900E7D30B /* AppDelegate.swift */; };
 		DCA3C73B24FD2D2900E7D30B /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCA3C73A24FD2D2900E7D30B /* SceneDelegate.swift */; };
 		DCA3C73D24FD2D2900E7D30B /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCA3C73C24FD2D2900E7D30B /* ViewController.swift */; };
@@ -60,6 +62,8 @@
 		DC4B1C79252B1E6D00D7DD64 /* ActionSheetLauncher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActionSheetLauncher.swift; sourceTree = "<group>"; };
 		DC4B1C7B252B341C00D7DD64 /* ActionSheetCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActionSheetCell.swift; sourceTree = "<group>"; };
 		DC4B1C7D252B45A000D7DD64 /* ActionSheetViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActionSheetViewModel.swift; sourceTree = "<group>"; };
+		DC4B1C7F2530954700D7DD64 /* Notification.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Notification.swift; sourceTree = "<group>"; };
+		DC4B1C81253097B300D7DD64 /* NotificationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationService.swift; sourceTree = "<group>"; };
 		DCA3C73524FD2D2900E7D30B /* TwitterTutorial.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TwitterTutorial.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DCA3C73824FD2D2900E7D30B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		DCA3C73A24FD2D2900E7D30B /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -181,6 +185,7 @@
 				DCA3C76E2501246C00E7D30B /* AuthService.swift */,
 				DCA3C77025023B4C00E7D30B /* UserService.swift */,
 				DCA3C7782503BC6B00E7D30B /* TweetService.swift */,
+				DC4B1C81253097B300D7DD64 /* NotificationService.swift */,
 			);
 			path = API;
 			sourceTree = "<group>";
@@ -232,6 +237,7 @@
 			children = (
 				DCA3C7722502443100E7D30B /* User.swift */,
 				DCA3C77A2503D07B00E7D30B /* Tweet.swift */,
+				DC4B1C7F2530954700D7DD64 /* Notification.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -365,6 +371,7 @@
 				DCA3C7792503BC6B00E7D30B /* TweetService.swift in Sources */,
 				DCA3C76124FD4C2F00E7D30B /* Extensions.swift in Sources */,
 				DCA3C73924FD2D2900E7D30B /* AppDelegate.swift in Sources */,
+				DC4B1C82253097B300D7DD64 /* NotificationService.swift in Sources */,
 				DCA3C75F24FD340C00E7D30B /* ConversationsController.swift in Sources */,
 				DCA3C7752502698700E7D30B /* UploadTweetController.swift in Sources */,
 				DCA3C75924FD326C00E7D30B /* FeedController.swift in Sources */,
@@ -392,6 +399,7 @@
 				DCA3C76424FD588300E7D30B /* LoginController.swift in Sources */,
 				DC4B1C7825274CFA00D7DD64 /* UploadTweetViewModel.swift in Sources */,
 				DC4B1C7A252B1E6D00D7DD64 /* ActionSheetLauncher.swift in Sources */,
+				DC4B1C802530954700D7DD64 /* Notification.swift in Sources */,
 				DCA3C76824FE455D00E7D30B /* Utilitites.swift in Sources */,
 				DC4B1C7E252B45A000D7DD64 /* ActionSheetViewModel.swift in Sources */,
 				DCA3C76F2501246C00E7D30B /* AuthService.swift in Sources */,
