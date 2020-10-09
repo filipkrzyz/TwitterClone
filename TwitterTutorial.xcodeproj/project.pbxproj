@@ -12,6 +12,9 @@
 		DC2EE76425090E0600D2CAEA /* ProfileFilterCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC2EE76325090E0600D2CAEA /* ProfileFilterCell.swift */; };
 		DC2EE76625092B5500D2CAEA /* ProfileHeaderViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC2EE76525092B5500D2CAEA /* ProfileHeaderViewModel.swift */; };
 		DC4B1C7825274CFA00D7DD64 /* UploadTweetViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC4B1C7725274CFA00D7DD64 /* UploadTweetViewModel.swift */; };
+		DC4B1C7A252B1E6D00D7DD64 /* ActionSheetLauncher.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC4B1C79252B1E6D00D7DD64 /* ActionSheetLauncher.swift */; };
+		DC4B1C7C252B341C00D7DD64 /* ActionSheetCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC4B1C7B252B341C00D7DD64 /* ActionSheetCell.swift */; };
+		DC4B1C7E252B45A000D7DD64 /* ActionSheetViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC4B1C7D252B45A000D7DD64 /* ActionSheetViewModel.swift */; };
 		DCA3C73924FD2D2900E7D30B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCA3C73824FD2D2900E7D30B /* AppDelegate.swift */; };
 		DCA3C73B24FD2D2900E7D30B /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCA3C73A24FD2D2900E7D30B /* SceneDelegate.swift */; };
 		DCA3C73D24FD2D2900E7D30B /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCA3C73C24FD2D2900E7D30B /* ViewController.swift */; };
@@ -54,6 +57,9 @@
 		DC2EE76325090E0600D2CAEA /* ProfileFilterCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileFilterCell.swift; sourceTree = "<group>"; };
 		DC2EE76525092B5500D2CAEA /* ProfileHeaderViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileHeaderViewModel.swift; sourceTree = "<group>"; };
 		DC4B1C7725274CFA00D7DD64 /* UploadTweetViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UploadTweetViewModel.swift; sourceTree = "<group>"; };
+		DC4B1C79252B1E6D00D7DD64 /* ActionSheetLauncher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActionSheetLauncher.swift; sourceTree = "<group>"; };
+		DC4B1C7B252B341C00D7DD64 /* ActionSheetCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActionSheetCell.swift; sourceTree = "<group>"; };
+		DC4B1C7D252B45A000D7DD64 /* ActionSheetViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActionSheetViewModel.swift; sourceTree = "<group>"; };
 		DCA3C73524FD2D2900E7D30B /* TwitterTutorial.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TwitterTutorial.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DCA3C73824FD2D2900E7D30B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		DCA3C73A24FD2D2900E7D30B /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -164,6 +170,7 @@
 				DCA3C76024FD4C2F00E7D30B /* Extensions.swift */,
 				DCA3C76724FE455D00E7D30B /* Utilitites.swift */,
 				DCA3C76C2500E9E400E7D30B /* Constants.swift */,
+				DC4B1C79252B1E6D00D7DD64 /* ActionSheetLauncher.swift */,
 			);
 			path = Utilities;
 			sourceTree = "<group>";
@@ -200,6 +207,7 @@
 				DCA3C77E2506693700E7D30B /* TweetViewModel.swift */,
 				DC2EE76525092B5500D2CAEA /* ProfileHeaderViewModel.swift */,
 				DC4B1C7725274CFA00D7DD64 /* UploadTweetViewModel.swift */,
+				DC4B1C7D252B45A000D7DD64 /* ActionSheetViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -214,6 +222,7 @@
 				DC2EE76325090E0600D2CAEA /* ProfileFilterCell.swift */,
 				DC0A9BC72521D5B70054CECA /* UserCell.swift */,
 				DCD06A4D2524D62000012E7F /* TweetHeader.swift */,
+				DC4B1C7B252B341C00D7DD64 /* ActionSheetCell.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -359,6 +368,7 @@
 				DCA3C75F24FD340C00E7D30B /* ConversationsController.swift in Sources */,
 				DCA3C7752502698700E7D30B /* UploadTweetController.swift in Sources */,
 				DCA3C75924FD326C00E7D30B /* FeedController.swift in Sources */,
+				DC4B1C7C252B341C00D7DD64 /* ActionSheetCell.swift in Sources */,
 				DCA3C7772503A2E100E7D30B /* CaptionTextView.swift in Sources */,
 				DCA3C7852507AC5600E7D30B /* ProfileFilterView.swift in Sources */,
 				DCA3C7832507903700E7D30B /* ProfileHeader.swift in Sources */,
@@ -381,7 +391,9 @@
 				DCA3C77125023B4C00E7D30B /* UserService.swift in Sources */,
 				DCA3C76424FD588300E7D30B /* LoginController.swift in Sources */,
 				DC4B1C7825274CFA00D7DD64 /* UploadTweetViewModel.swift in Sources */,
+				DC4B1C7A252B1E6D00D7DD64 /* ActionSheetLauncher.swift in Sources */,
 				DCA3C76824FE455D00E7D30B /* Utilitites.swift in Sources */,
+				DC4B1C7E252B45A000D7DD64 /* ActionSheetViewModel.swift in Sources */,
 				DCA3C76F2501246C00E7D30B /* AuthService.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
