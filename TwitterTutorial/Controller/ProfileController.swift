@@ -150,6 +150,9 @@ extension ProfileController: ProfileHeaderDelegate {
             UserService.shared.followUser(uid: user.uid) { (ref, error) in
                 self.user.isFollowed = true
                 self.collectionView.reloadData()
+                
+                // This call should be in the followUser func because it should be also called when following from the actionSheet
+                NotificationService.shared.uploadNotification(type: .follow, user: self.user)
             }
         }
     }
