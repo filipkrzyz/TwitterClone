@@ -15,12 +15,33 @@ class NotificationsController: UITableViewController {
     
     // MARK: - Properties
     
+    private var notifications = [Notification]() {
+        didSet {
+            tableView.reloadData()
+        }
+    }
+    
     // MARK: - Lifecycles
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        fetchNotifications()
         configureUI()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        navigationController?.navigationBar.isHidden = false
+        navigationController?.navigationBar.barStyle = .default
+    }
+    
+    // MARK: - API
+    
+    func fetchNotifications() {
+        NotificationService.shared.fetchNotifications { notifications in
+            self.notifications = notifications
+        }
     }
 
     // MARK: - Helpers
@@ -35,14 +56,43 @@ class NotificationsController: UITableViewController {
     }
 }
 
+// MARK: - UITableViewDataSource
+
 extension NotificationsController {
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 10
+        return notifications.count
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: notificationCellIdentifier,
                                                  for: indexPath) as! NotificationCell
+        cell.notification = notifications[indexPath.row]
+        cell.delegate = self
         return cell
+    }
+}
+
+// MARK: - UITableViewDelegate
+
+extension NotificationsController {
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let notification = notifications[indexPath.row]
+        guard let tweetID = notification.tweetID else { return }
+        
+        TweetService.shared.fetchTweet(withTweetID: tweetID) { tweet in
+            let tweetController = TweetController(tweet: tweet)
+            self.navigationController?.pushViewController(tweetController, animated: true)
+        }
+    }
+}
+
+// MARK: - NotificationCellDelegate
+
+extension NotificationsController: NotificationCellDelegate {
+    func didTapProfileImage(_ cell: NotificationCell) {
+        guard let user = cell.notification?.user else { return }
+        
+        let controller = ProfileController(user: user)
+        navigationController?.pushViewController(controller, animated: true)
     }
 }

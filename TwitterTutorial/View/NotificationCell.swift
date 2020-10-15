@@ -8,9 +8,21 @@
 
 import UIKit
 
+protocol NotificationCellDelegate: AnyObject {
+    func didTapProfileImage(_ cell: NotificationCell)
+}
+
 class NotificationCell: UITableViewCell {
     
     // MARK: - Properties
+    
+    var notification: Notification? {
+        didSet {
+            configure()
+        }
+    }
+    
+    weak var delegate: NotificationCellDelegate?
     
     private lazy var profileImageView: UIImageView = {
         let imageView = UIImageView()
@@ -53,10 +65,20 @@ class NotificationCell: UITableViewCell {
         fatalError("init(coder:) has not been implemented")
     }
     
+    // MARK: - Helpers
+    
+    func configure() {
+        guard let notification = notification else { return }
+        let notificationViewModel = NotificationViewModel(notification: notification)
+        
+        profileImageView.sd_setImage(with: notificationViewModel.profileImageUrl)
+        notificationLabel.attributedText = notificationViewModel.notificationText
+    }
+    
     // MARK: - Selectors
     
     @objc func handleProfileImageTapped() {
-        print("DEBUG: handle image tapped")
+        delegate?.didTapProfileImage(self)
     }
 }
 
