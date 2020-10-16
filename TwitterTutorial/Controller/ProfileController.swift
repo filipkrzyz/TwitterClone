@@ -25,7 +25,7 @@ class ProfileController: UICollectionViewController {
     
     private var tweets = [Tweet]()
     private var replies = [Tweet]()
-    private var likes = [Tweet]()
+    private var likedTweets = [Tweet]()
     
     private var currentDataSource: [Tweet] {
         switch selectedFilter {
@@ -34,7 +34,7 @@ class ProfileController: UICollectionViewController {
         case .replies:
             return replies
         case .likes:
-            return likes
+            return likedTweets
         }
     }
     
@@ -54,6 +54,7 @@ class ProfileController: UICollectionViewController {
         
         configureCollectionView()
         fetchTweets()
+        fetchLikedTweets()
         checkIfUserIsFollowed()
         fetchUserStats()
     }
@@ -73,6 +74,12 @@ class ProfileController: UICollectionViewController {
         TweetService.shared.fetchTweets(forUser: user) { tweets in
             self.tweets = tweets
             self.collectionView.reloadData()
+        }
+    }
+    
+    func fetchLikedTweets() {
+        TweetService.shared.fetchLikedTweets(forUser: user) { tweets in
+            self.likedTweets = tweets
         }
     }
     
@@ -101,6 +108,9 @@ class ProfileController: UICollectionViewController {
                                 forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader,
                                 withReuseIdentifier: profileHeaderIdentifier)
         collectionView.register(TweetCell.self, forCellWithReuseIdentifier: tweetCellIdentifier)
+        
+        guard let tabHeight = tabBarController?.tabBar.frame.height else { return }
+        collectionView.contentInset.bottom = tabHeight
     }
     
 }
@@ -129,7 +139,10 @@ extension ProfileController: UICollectionViewDelegateFlowLayout {
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return CGSize(width: view.frame.width, height: 120)
+        let tweetViewModel = TweetViewModel(tweet: tweets[indexPath.row])
+        let captionHeight = tweetViewModel.size(forWidth: view.frame.width).height
+        
+        return CGSize(width: view.frame.width, height: captionHeight + 72)
     }
 }
 
