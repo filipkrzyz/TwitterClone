@@ -10,6 +10,7 @@ import UIKit
 
 protocol NotificationCellDelegate: AnyObject {
     func didTapProfileImage(_ cell: NotificationCell)
+    func didTapFollowUnfollow(_ cell: NotificationCell)
 }
 
 class NotificationCell: UITableViewCell {
@@ -47,6 +48,17 @@ class NotificationCell: UITableViewCell {
         return label
     }()
     
+    private lazy var followUnfollowButton: UIButton = {
+        let button = UIButton(type: .system)
+        button.setTitle("Loading", for: .normal)
+        button.setTitleColor(.twitterBlue, for: .normal)
+        button.backgroundColor = .white
+        button.layer.borderColor = UIColor.twitterBlue.cgColor
+        button.layer.borderWidth = 2
+        button.addTarget(self, action: #selector(handleFollowUnfollowTapped), for: .touchUpInside)
+        return button
+    }()
+    
     // MARK: - Lifecycle
     
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
@@ -59,6 +71,12 @@ class NotificationCell: UITableViewCell {
         addSubview(stack)
         stack.centerY(inView: self, leftAnchor: leftAnchor, paddingLeft: 12)
         stack.anchor(right: rightAnchor, paddingRight: 12)
+        
+        addSubview(followUnfollowButton)
+        followUnfollowButton.centerY(inView: self)
+        followUnfollowButton.setDimensions(width: 92, height: 32)
+        followUnfollowButton.layer.cornerRadius = 32 / 2
+        followUnfollowButton.anchor(right: rightAnchor, paddingRight: 12)
     }
     
     required init?(coder: NSCoder) {
@@ -73,12 +91,19 @@ class NotificationCell: UITableViewCell {
         
         profileImageView.sd_setImage(with: notificationViewModel.profileImageUrl)
         notificationLabel.attributedText = notificationViewModel.notificationText
+        
+        followUnfollowButton.isHidden = notificationViewModel.shouldHideFollowUnfollowButton
+        followUnfollowButton.setTitle(notificationViewModel.followUnfollowButtonText, for: .normal)
     }
     
     // MARK: - Selectors
     
     @objc func handleProfileImageTapped() {
         delegate?.didTapProfileImage(self)
+    }
+    
+    @objc func handleFollowUnfollowTapped() {
+        delegate?.didTapFollowUnfollow(self)
     }
 }
 

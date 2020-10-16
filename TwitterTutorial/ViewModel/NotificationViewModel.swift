@@ -56,6 +56,14 @@ struct NotificationViewModel {
         return user.profileImageUrl
     }
     
+    var shouldHideFollowUnfollowButton: Bool {
+        return type != .follow
+    }
+    
+    var followUnfollowButtonText: String {
+        return user.isFollowed ? "Following" : "Follow"
+    }
+    
     init(notification: Notification) {
         self.notification = notification
         self.type = notification.type
