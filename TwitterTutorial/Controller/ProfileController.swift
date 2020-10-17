@@ -54,6 +54,7 @@ class ProfileController: UICollectionViewController {
         
         configureCollectionView()
         fetchTweets()
+        fetchReplies()
         fetchLikedTweets()
         checkIfUserIsFollowed()
         fetchUserStats()
@@ -74,6 +75,12 @@ class ProfileController: UICollectionViewController {
         TweetService.shared.fetchTweets(forUser: user) { tweets in
             self.tweets = tweets
             self.collectionView.reloadData()
+        }
+    }
+    
+    func fetchReplies() {
+        TweetService.shared.fetchReplies(forUser: user) { tweets in
+            self.replies = tweets
         }
     }
     
@@ -139,7 +146,7 @@ extension ProfileController: UICollectionViewDelegateFlowLayout {
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        let tweetViewModel = TweetViewModel(tweet: tweets[indexPath.row])
+        let tweetViewModel = TweetViewModel(tweet: currentDataSource[indexPath.row])
         let captionHeight = tweetViewModel.size(forWidth: view.frame.width).height
         
         return CGSize(width: view.frame.width, height: captionHeight + 72)
