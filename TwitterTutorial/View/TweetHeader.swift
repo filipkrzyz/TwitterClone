@@ -25,6 +25,13 @@ class TweetHeader: UICollectionReusableView {
     
     weak var delegate: TweetHeaderDelegate?
     
+    private let replyLabel: UILabel = {
+        let label = UILabel()
+        label.textColor = .lightGray
+        label.font = UIFont.systemFont(ofSize: 12)
+        return label
+    }()
+    
     private lazy var profileImageView: UIImageView = {
         let imageView = UIImageView()
         imageView.contentMode = .scaleAspectFill
@@ -142,18 +149,25 @@ class TweetHeader: UICollectionReusableView {
         
         backgroundColor = .white
         
-        let labelStack = UIStackView(arrangedSubviews: [fullnameLabel, usernameLabel])
-        labelStack.axis = .vertical
-        labelStack.spacing = -6
+        let userInfoStack = UIStackView(arrangedSubviews: [fullnameLabel, usernameLabel])
+        userInfoStack.axis = .vertical
+        userInfoStack.spacing = -6
         
-        let stack = UIStackView(arrangedSubviews: [profileImageView, labelStack])
-        stack.spacing = 12
+        let imageUserInfoStack = UIStackView(arrangedSubviews: [profileImageView, userInfoStack])
+        imageUserInfoStack.spacing = 12
         
-        addSubview(stack)
-        stack.anchor(top: topAnchor, left: leftAnchor, paddingTop: 16, paddingLeft: 16)
+        let replyImageUserInfoStack = UIStackView(arrangedSubviews: [replyLabel, imageUserInfoStack])
+        replyImageUserInfoStack.axis = .vertical
+        replyImageUserInfoStack.spacing = 8
+        replyImageUserInfoStack.distribution = .fillProportionally
+        
+        addSubview(replyImageUserInfoStack)
+        replyImageUserInfoStack.anchor(top: topAnchor, left: leftAnchor,
+                                       paddingTop: 16, paddingLeft: 16)
         
         addSubview(captionLabel)
-        captionLabel.anchor(top: stack.bottomAnchor, left: leftAnchor, right: rightAnchor,
+        captionLabel.anchor(top: replyImageUserInfoStack.bottomAnchor,
+                            left: leftAnchor, right: rightAnchor,
                             paddingTop: 12, paddingLeft: 16, paddingRight: 16)
         
         addSubview(dateLabel)
@@ -161,7 +175,7 @@ class TweetHeader: UICollectionReusableView {
                          paddingTop: 20, paddingLeft: 16)
         
         addSubview(optionsButton)
-        optionsButton.centerY(inView: stack)
+        optionsButton.centerY(inView: replyImageUserInfoStack)
         optionsButton.anchor(right: rightAnchor, paddingRight: 8)
         
         addSubview(statsView)
@@ -225,6 +239,9 @@ class TweetHeader: UICollectionReusableView {
         likesLabel.attributedText = tweetViewModel.likesAtributedString
         likeButton.tintColor = tweetViewModel.likeButtonTintColor
         likeButton.setImage(tweetViewModel.likeButtonImage, for: .normal)
+        
+        replyLabel.isHidden = tweetViewModel.shouldHideReplyLabel
+        replyLabel.text = tweetViewModel.replyText
     }
     
     func createButton(withImageName imageName: String) -> UIButton {

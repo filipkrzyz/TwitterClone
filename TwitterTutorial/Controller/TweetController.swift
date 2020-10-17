@@ -43,6 +43,12 @@ class TweetController: UICollectionViewController {
         print("DEBUG: Tweet caption is: \(tweet.caption)")
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        navigationController?.navigationBar.isHidden = false
+        navigationController?.navigationBar.barStyle = .default
+    }
+    
     // MARK: - API
 
     func fetchReplies() {

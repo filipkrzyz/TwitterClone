@@ -170,6 +170,11 @@ extension ProfileController {
         header.delegate = self
         return header
     }
+    
+    override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        let tweetController = TweetController(tweet: currentDataSource[indexPath.row])
+        navigationController?.pushViewController(tweetController, animated: true)
+    }
 }
 
 // MARK: - ProfileHeaderDelegate
