@@ -26,6 +26,13 @@ class TweetCell: UICollectionViewCell {
     
     weak var delegate: TweetCellDelegate?
     
+    private let replyLabel: UILabel = {
+        let label = UILabel()
+        label.textColor = .lightGray
+        label.font = UIFont.systemFont(ofSize: 12)
+        return label
+    }()
+    
     private lazy var profileImageView: UIImageView = {
         let imageView = UIImageView()
         imageView.contentMode = .scaleAspectFill
@@ -47,7 +54,6 @@ class TweetCell: UICollectionViewCell {
         let label = UILabel()
         label.font = UIFont.systemFont(ofSize: 14)
         label.numberOfLines = 0
-        label.text = "Some test caption"
         return label
     }()
     
@@ -94,20 +100,25 @@ class TweetCell: UICollectionViewCell {
         
         backgroundColor = .white
         
-        addSubview(profileImageView)
-        profileImageView.anchor(top: topAnchor, left: leftAnchor,
-                                paddingTop: 8, paddingLeft: 8)
+        let infoCaptionStack = UIStackView(arrangedSubviews: [infoLabel, captionLabel])
+        infoCaptionStack.axis = .vertical
+        infoCaptionStack.distribution = .fillProportionally
+        infoCaptionStack.spacing = 4
         
-        infoLabel.text = "Full Name @username 0s"
+        let imageInfoCaptionStack = UIStackView(arrangedSubviews: [profileImageView, infoCaptionStack])
+        imageInfoCaptionStack.distribution = .fillProportionally
+        imageInfoCaptionStack.spacing = 12
+        imageInfoCaptionStack.alignment = .leading
         
-        let stack = UIStackView(arrangedSubviews: [infoLabel, captionLabel])
-        stack.axis = .vertical
-        stack.distribution = .fillProportionally
-        stack.spacing = 4
+        let replyImageInfoCaptionStack = UIStackView(arrangedSubviews: [replyLabel, imageInfoCaptionStack])
+        replyImageInfoCaptionStack.axis = .vertical
+        replyImageInfoCaptionStack.spacing = 8
+        replyImageInfoCaptionStack.distribution = .fillProportionally
         
-        addSubview(stack)
-        stack.anchor(top: profileImageView.topAnchor, left: profileImageView.rightAnchor,
-                     right: rightAnchor, paddingLeft: 12, paddingRight: 12)
+        addSubview(replyImageInfoCaptionStack)
+        replyImageInfoCaptionStack.anchor(top: topAnchor, left: leftAnchor,
+        right: rightAnchor, paddingTop: 4,
+        paddingLeft: 12, paddingRight: 12)
         
         let actionStack = UIStackView(arrangedSubviews: [replyButton, retweetButton,
                                                          likeButton, shareButton])
@@ -165,5 +176,8 @@ class TweetCell: UICollectionViewCell {
         
         likeButton.tintColor = tweetViewModel.likeButtonTintColor
         likeButton.setImage(tweetViewModel.likeButtonImage, for: .normal)
+        
+        replyLabel.isHidden = tweetViewModel.shouldHideReplyLabel
+        replyLabel.text = tweetViewModel.replyText
     }
 }
