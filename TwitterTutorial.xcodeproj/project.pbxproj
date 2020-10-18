@@ -21,6 +21,8 @@
 		DC4B1C86253231F200D7DD64 /* NotificationViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC4B1C85253231F200D7DD64 /* NotificationViewModel.swift */; };
 		DC4B1C88253C4D9800D7DD64 /* EditProfileController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC4B1C87253C4D9800D7DD64 /* EditProfileController.swift */; };
 		DC4B1C8B253C558600D7DD64 /* EditProfileHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC4B1C8A253C558600D7DD64 /* EditProfileHeader.swift */; };
+		DC4B1C8D253C610900D7DD64 /* EditProfileViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC4B1C8C253C610900D7DD64 /* EditProfileViewModel.swift */; };
+		DC4B1C8F253C61F300D7DD64 /* EditProfileCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC4B1C8E253C61F300D7DD64 /* EditProfileCell.swift */; };
 		DCA3C73924FD2D2900E7D30B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCA3C73824FD2D2900E7D30B /* AppDelegate.swift */; };
 		DCA3C73B24FD2D2900E7D30B /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCA3C73A24FD2D2900E7D30B /* SceneDelegate.swift */; };
 		DCA3C73D24FD2D2900E7D30B /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCA3C73C24FD2D2900E7D30B /* ViewController.swift */; };
@@ -72,6 +74,8 @@
 		DC4B1C85253231F200D7DD64 /* NotificationViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationViewModel.swift; sourceTree = "<group>"; };
 		DC4B1C87253C4D9800D7DD64 /* EditProfileController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditProfileController.swift; sourceTree = "<group>"; };
 		DC4B1C8A253C558600D7DD64 /* EditProfileHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditProfileHeader.swift; sourceTree = "<group>"; };
+		DC4B1C8C253C610900D7DD64 /* EditProfileViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditProfileViewModel.swift; sourceTree = "<group>"; };
+		DC4B1C8E253C61F300D7DD64 /* EditProfileCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditProfileCell.swift; sourceTree = "<group>"; };
 		DCA3C73524FD2D2900E7D30B /* TwitterTutorial.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TwitterTutorial.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DCA3C73824FD2D2900E7D30B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		DCA3C73A24FD2D2900E7D30B /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -143,6 +147,7 @@
 				DCA3C7842507AC5600E7D30B /* ProfileFilterView.swift */,
 				DC2EE76325090E0600D2CAEA /* ProfileFilterCell.swift */,
 				DC4B1C8A253C558600D7DD64 /* EditProfileHeader.swift */,
+				DC4B1C8E253C61F300D7DD64 /* EditProfileCell.swift */,
 			);
 			path = Profile;
 			sourceTree = "<group>";
@@ -234,6 +239,7 @@
 				DC4B1C7725274CFA00D7DD64 /* UploadTweetViewModel.swift */,
 				DC4B1C7D252B45A000D7DD64 /* ActionSheetViewModel.swift */,
 				DC4B1C85253231F200D7DD64 /* NotificationViewModel.swift */,
+				DC4B1C8C253C610900D7DD64 /* EditProfileViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -396,6 +402,7 @@
 				DCA3C75F24FD340C00E7D30B /* ConversationsController.swift in Sources */,
 				DCA3C7752502698700E7D30B /* UploadTweetController.swift in Sources */,
 				DCA3C75924FD326C00E7D30B /* FeedController.swift in Sources */,
+				DC4B1C8F253C61F300D7DD64 /* EditProfileCell.swift in Sources */,
 				DC4B1C88253C4D9800D7DD64 /* EditProfileController.swift in Sources */,
 				DC4B1C7C252B341C00D7DD64 /* ActionSheetCell.swift in Sources */,
 				DCA3C7772503A2E100E7D30B /* CaptionTextView.swift in Sources */,
@@ -416,6 +423,7 @@
 				DC0A9BC82521D5B70054CECA /* UserCell.swift in Sources */,
 				DCA3C73B24FD2D2900E7D30B /* SceneDelegate.swift in Sources */,
 				DCA3C77D25062C8600E7D30B /* TweetCell.swift in Sources */,
+				DC4B1C8D253C610900D7DD64 /* EditProfileViewModel.swift in Sources */,
 				DCA3C75B24FD33E200E7D30B /* ExploreController.swift in Sources */,
 				DCA3C77125023B4C00E7D30B /* UserService.swift in Sources */,
 				DCA3C76424FD588300E7D30B /* LoginController.swift in Sources */,
