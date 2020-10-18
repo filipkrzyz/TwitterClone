@@ -96,7 +96,13 @@ extension EditProfileController {
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: editProfileCellIdentifier,
-                                                 for: indexPath)
+                                                 for: indexPath) as! EditProfileCell
+        cell.delegate = self
+        
+        guard let option = EditProfileOptions(rawValue: indexPath.row) else { return cell }
+        
+        cell.editProfileViewModel = EditProfileViewModel(user: user, option: option)
+        
         return cell
     }
 }
@@ -113,6 +119,14 @@ extension EditProfileController {
 extension EditProfileController: EditProfileHeaderDelegate {
     func didTapChangePhoto() {
         present(imagePicker, animated: true, completion: nil)
+    }
+}
+
+// MARK: - EditProfileCellDelegate
+
+extension EditProfileController: EditProfileCellDelegate {
+    func updateUserInfo(_ cell: EditProfileCell) {
+        print("DEBUG: Update user info")
     }
 }
 

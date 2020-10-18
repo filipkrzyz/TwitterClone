@@ -17,6 +17,7 @@ struct User {
     let uid: String
     var isFollowed = false
     var userRelationStats: UserRelationStats?
+    var bio: String?
     
     var isCurrentUser: Bool {
         return Auth.auth().currentUser?.uid == uid
