@@ -16,6 +16,13 @@ class EditProfileController: UITableViewController {
     
     private let user: User
     private lazy var headerView = EditProfileHeader(user: user)
+    private let imagePicker = UIImagePickerController()
+    
+    private var selectedImage: UIImage? {
+        didSet {
+            headerView.profileImageView.image = selectedImage
+        }
+    }
     
     // MARK: - Lifecycle
     
@@ -33,6 +40,7 @@ class EditProfileController: UITableViewController {
         
         configureNavigationBar()
         configureTableView()
+        configureImagePicker()
     }
     
     // MARK: - Selectors
@@ -72,6 +80,11 @@ class EditProfileController: UITableViewController {
         
         tableView.register(EditProfileCell.self, forCellReuseIdentifier: editProfileCellIdentifier)
     }
+    
+    func configureImagePicker() {
+        imagePicker.delegate = self
+        imagePicker.allowsEditing = true
+    }
 }
 
 // MARK: - UITableViewDataSource
@@ -99,6 +112,17 @@ extension EditProfileController {
 
 extension EditProfileController: EditProfileHeaderDelegate {
     func didTapChangePhoto() {
-        print("DEBUG: Chang Profile Photo tapped")
+        present(imagePicker, animated: true, completion: nil)
+    }
+}
+
+// MARK: - UIImagePickerControllerDelegate, UINavigationControllerDelegate
+extension EditProfileController: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
+        
+        guard let image = info[.editedImage] as? UIImage else { return }
+        self.selectedImage = image
+        
+        dismiss(animated: true, completion: nil)
     }
 }
