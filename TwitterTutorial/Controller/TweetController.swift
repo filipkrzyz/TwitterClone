@@ -47,6 +47,7 @@ class TweetController: UICollectionViewController {
         super.viewWillAppear(animated)
         navigationController?.navigationBar.isHidden = false
         navigationController?.navigationBar.barStyle = .default
+        navigationController?.navigationBar.tintColor = .twitterBlue
     }
     
     // MARK: - API
