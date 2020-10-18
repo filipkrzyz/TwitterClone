@@ -13,6 +13,7 @@ class EditProfileController: UITableViewController {
     // MARK: - Properties
     
     private let user: User
+    private lazy var headerView = EditProfileHeader(user: user)
     
     // MARK: - Lifecycle
     
@@ -29,6 +30,7 @@ class EditProfileController: UITableViewController {
         super.viewDidLoad()
         
         configureNavigationBar()
+        configureTableView()
     }
     
     // MARK: - Selectors
@@ -60,4 +62,18 @@ class EditProfileController: UITableViewController {
         navigationItem.rightBarButtonItem?.isEnabled = false
     }
     
+    func configureTableView() {
+        tableView.tableHeaderView = headerView
+        headerView.frame = CGRect(x: 0, y: 0, width: view.frame.width, height: 180)
+        headerView.delegate = self
+        tableView.tableFooterView = UIView()
+    }
+}
+
+// MARK: - EditProfileHeaderDelegate
+
+extension EditProfileController: EditProfileHeaderDelegate {
+    func didTapChangePhoto() {
+        print("DEBUG: Chang Profile Photo tapped")
+    }
 }
