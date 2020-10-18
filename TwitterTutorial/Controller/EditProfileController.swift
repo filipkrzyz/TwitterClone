@@ -14,7 +14,7 @@ class EditProfileController: UITableViewController {
     
     // MARK: - Properties
     
-    private let user: User
+    private var user: User
     private lazy var headerView = EditProfileHeader(user: user)
     private let imagePicker = UIImagePickerController()
     
@@ -126,7 +126,21 @@ extension EditProfileController: EditProfileHeaderDelegate {
 
 extension EditProfileController: EditProfileCellDelegate {
     func updateUserInfo(_ cell: EditProfileCell) {
-        print("DEBUG: Update user info")
+        guard let editProfileViewModel = cell.editProfileViewModel else { return }
+        
+        switch editProfileViewModel.option {
+        case .fullname:
+            guard let fullname = cell.infoTextField.text else { return }
+            user.fullname = fullname
+        case .username:
+            guard let username = cell.infoTextField.text else { return }
+            user.username = username
+        case .bio:
+            user.bio = cell.bioTextView.text
+        }
+        
+        print("DEBUG: Updated user: @\(user.username) : \(user.fullname)")
+        print("DEBUG: Bio: \(user.bio)")
     }
 }
 

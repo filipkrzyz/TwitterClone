@@ -91,9 +91,12 @@ class EditProfileCell: UITableViewCell {
     
     func configure() {
         guard let viewModel = editProfileViewModel else { return }
+        
         infoTextField.isHidden = viewModel.shouldHideTextField
         bioTextView.isHidden = viewModel.shouldHideTextView
+        
         titleLabel.text = viewModel.titleText
+        
         infoTextField.text = viewModel.optionValue
         bioTextView.text = viewModel.optionValue
     }
