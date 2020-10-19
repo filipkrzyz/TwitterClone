@@ -10,6 +10,10 @@ import UIKit
 
 private let editProfileCellIdentifier = "EditProfileCell"
 
+protocol EditProfileControllerDelegate: AnyObject {
+    func controller(_ controller: EditProfileController, wantsToUpdate user: User)
+}
+
 class EditProfileController: UITableViewController {
     
     // MARK: - Properties
@@ -17,6 +21,8 @@ class EditProfileController: UITableViewController {
     private var user: User
     private lazy var headerView = EditProfileHeader(user: user)
     private let imagePicker = UIImagePickerController()
+    private var userInfoChanged = false
+    weak var delegate: EditProfileControllerDelegate?
     
     private var selectedImage: UIImage? {
         didSet {
@@ -50,11 +56,18 @@ class EditProfileController: UITableViewController {
     }
     
     @objc func handleDone() {
-        dismiss(animated: true, completion: nil)
+        saveUserData()
     }
     
     // MARK: - API
     
+    func saveUserData() {
+        UserService.shared.saveUserData(user: user) { (error, reference) in
+            //self.dismiss(animated: true, completion: nil)
+            self.delegate?.controller(self, wantsToUpdate: self.user)
+            print("DEBUG: Did save user data")
+        }
+    }
     
     // MARK: - Helpers
     
@@ -127,6 +140,8 @@ extension EditProfileController: EditProfileHeaderDelegate {
 extension EditProfileController: EditProfileCellDelegate {
     func updateUserInfo(_ cell: EditProfileCell) {
         guard let editProfileViewModel = cell.editProfileViewModel else { return }
+        userInfoChanged = true
+        navigationItem.rightBarButtonItem?.isEnabled = true
         
         switch editProfileViewModel.option {
         case .fullname:
@@ -139,8 +154,6 @@ extension EditProfileController: EditProfileCellDelegate {
             user.bio = cell.bioTextView.text
         }
         
-        print("DEBUG: Updated user: @\(user.username) : \(user.fullname)")
-        print("DEBUG: Bio: \(user.bio)")
     }
 }
 
