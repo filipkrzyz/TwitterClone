@@ -24,6 +24,10 @@ class EditProfileController: UITableViewController {
     private var userInfoChanged = false
     weak var delegate: EditProfileControllerDelegate?
     
+    private var imageChanged: Bool {
+        return selectedImage != nil
+    }
+    
     private var selectedImage: UIImage? {
         didSet {
             headerView.profileImageView.image = selectedImage
@@ -56,16 +60,37 @@ class EditProfileController: UITableViewController {
     }
     
     @objc func handleDone() {
+        view.endEditing(true)
+        guard imageChanged || userInfoChanged else { return }
         saveUserData()
     }
     
     // MARK: - API
     
     func saveUserData() {
-        UserService.shared.saveUserData(user: user) { (error, reference) in
-            //self.dismiss(animated: true, completion: nil)
+        if imageChanged && !userInfoChanged {
+            saveProfileImage()
+        }
+        
+        if !imageChanged && userInfoChanged {
+            UserService.shared.saveUserData(user: user) { (error, reference) in
+                self.delegate?.controller(self, wantsToUpdate: self.user)
+            }
+        }
+        
+        if imageChanged && !userInfoChanged {
+            UserService.shared.saveUserData(user: user) { (error, reference) in
+                self.saveProfileImage()
+            }
+        }
+    }
+    
+    func saveProfileImage() {
+        guard let image = selectedImage else { return }
+        
+        UserService.shared.saveProfileImage(image: image) { profileImageUrl in
+            self.user.profileImageUrl = profileImageUrl
             self.delegate?.controller(self, wantsToUpdate: self.user)
-            print("DEBUG: Did save user data")
         }
     }
     
@@ -82,7 +107,6 @@ class EditProfileController: UITableViewController {
         navigationItem.leftBarButtonItem = UIBarButtonItem(barButtonSystemItem: .cancel, target: self, action: #selector(handleCancel))
         
         navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .done, target: self, action: #selector(handleDone))
-        navigationItem.rightBarButtonItem?.isEnabled = false
     }
     
     func configureTableView() {
@@ -141,7 +165,6 @@ extension EditProfileController: EditProfileCellDelegate {
     func updateUserInfo(_ cell: EditProfileCell) {
         guard let editProfileViewModel = cell.editProfileViewModel else { return }
         userInfoChanged = true
-        navigationItem.rightBarButtonItem?.isEnabled = true
         
         switch editProfileViewModel.option {
         case .fullname:

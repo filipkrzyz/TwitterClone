@@ -81,4 +81,22 @@ struct UserService {
         
         REF_USERS.child(uid).updateChildValues(values, withCompletionBlock: completion)
     }
+    
+    func saveProfileImage(image: UIImage, completion: @escaping(URL?) -> Void) {
+        guard let imageData = image.jpegData(compressionQuality: 0.3) else { return }
+        guard let uid = Auth.auth().currentUser?.uid else { return }
+        let filename = NSUUID().uuidString
+        let databaseReference = STORAGE_PROFILE_IMAGES.child(filename)
+        
+        databaseReference.putData(imageData, metadata: nil) { (metadata, error) in
+            databaseReference.downloadURL { (url, error) in
+                guard let profileImageUrl = url?.absoluteString else { return }
+                let values = ["profileImageUrl": profileImageUrl]
+                
+                REF_USERS.child(uid).updateChildValues(values) { (error, databaseReference) in
+                    completion(url)
+                }
+            }
+        }
+    }
 }
