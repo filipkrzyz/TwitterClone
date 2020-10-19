@@ -16,4 +16,6 @@ target 'TwitterTutorial' do
 
 	pod 'SDWebImage', '~> 5.0'
 
+	pod 'ActiveLabel'
+
 end
