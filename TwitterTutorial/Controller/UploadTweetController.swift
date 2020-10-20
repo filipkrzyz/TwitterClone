@@ -76,14 +76,18 @@ class UploadTweetController: UIViewController {
     
     @objc func handleUploadTweet() {
         guard let caption = captionTextView.text else { return }
-        TweetService.shared.uploadTweet(caption: caption, config: uploadTweetConfiguration) { (error, reerence) in
+        TweetService.shared.uploadTweet(caption: caption, config: uploadTweetConfiguration) { (error, reference) in
             if let error = error {
                 print("DEBUG: Uploading tweet failed with error: \(error)")
             }
             
             if case .reply(let tweet) = self.uploadTweetConfiguration {
-                NotificationService.shared.uploadNotification(type: .reply, tweet: tweet)
+                NotificationService.shared.uploadNotification(toUser: tweet.user,
+                                                              type: .reply,
+                                                              tweetID: tweet.tweetID)
             }
+            
+            self.uploadMentionNotification(forCaption: caption, tweetID: reference.key)
             
             self.dismiss(animated: true, completion: nil)
         }
@@ -94,6 +98,24 @@ class UploadTweetController: UIViewController {
     }
     
     // MARK: - API
+    
+    fileprivate func uploadMentionNotification(forCaption caption: String, tweetID: String?) {
+        guard caption.contains("@") else { return }
+        let words = caption.components(separatedBy: .whitespacesAndNewlines)
+        
+        words.forEach { word in
+            guard word.hasPrefix("@") else { return }
+            
+            var username = word.trimmingCharacters(in: .symbols)
+            username = username.trimmingCharacters(in: .punctuationCharacters)
+            
+            UserService.shared.fetchUser(withUsername: username) { user in
+                NotificationService.shared.uploadNotification(toUser: user,
+                                                              type: .mention,
+                                                              tweetID: tweetID)
+            }
+        }
+    }
     
     // MARK: - Helpers
     

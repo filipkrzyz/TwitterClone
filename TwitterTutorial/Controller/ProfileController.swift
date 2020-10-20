@@ -206,7 +206,8 @@ extension ProfileController: ProfileHeaderDelegate {
                 self.collectionView.reloadData()
                 
                 // This call should be in the followUser func because it should be also called when following from the actionSheet
-                NotificationService.shared.uploadNotification(type: .follow, user: self.user)
+                NotificationService.shared.uploadNotification(toUser: self.user,
+                                                              type: .follow)
             }
         }
     }
