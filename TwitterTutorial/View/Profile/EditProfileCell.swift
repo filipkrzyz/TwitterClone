@@ -37,7 +37,6 @@ class EditProfileCell: UITableViewCell {
         textField.textAlignment = .left
         textField.textColor = .twitterBlue
         textField.addTarget(self, action: #selector(handleUpdateUserInfo), for: .editingDidEnd)
-        textField.text = "Test User Attribute"
         return textField
     }()
     
@@ -99,5 +98,9 @@ class EditProfileCell: UITableViewCell {
         
         infoTextField.text = viewModel.optionValue
         bioTextView.text = viewModel.optionValue
+        
+        if bioTextView.text != "" {
+            bioTextView.placeholderLabel.text = ""
+        }
     }
 }

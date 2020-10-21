@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Firebase
 
 private let tweetCellIdentifier = "TweetCell"
 private let profileHeaderIdentifier = "ProfileHeader"
@@ -227,6 +228,18 @@ extension ProfileController: ProfileHeaderDelegate {
 // MARK: - EditProfileControllerDelegate
 
 extension ProfileController: EditProfileControllerDelegate {
+    func handleLogout() {
+        do {
+            try Auth.auth().signOut()
+            let navigationController = UINavigationController (rootViewController: LoginController())
+            navigationController.modalPresentationStyle = .fullScreen
+            self.present(navigationController, animated: true, completion: nil)
+        } catch let error {
+            print("DEBUG: Failed to sign out: \(error)")
+        }
+        print("DEBUG: Logged out")
+    }
+    
     func controller(_ controller: EditProfileController, wantsToUpdate user: User) {
         controller.dismiss(animated: true, completion: nil)
         self.user = user

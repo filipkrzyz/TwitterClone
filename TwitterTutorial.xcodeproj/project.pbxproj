@@ -23,6 +23,7 @@
 		DC4B1C8B253C558600D7DD64 /* EditProfileHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC4B1C8A253C558600D7DD64 /* EditProfileHeader.swift */; };
 		DC4B1C8D253C610900D7DD64 /* EditProfileViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC4B1C8C253C610900D7DD64 /* EditProfileViewModel.swift */; };
 		DC4B1C8F253C61F300D7DD64 /* EditProfileCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC4B1C8E253C61F300D7DD64 /* EditProfileCell.swift */; };
+		DC4B1C91253F0B9C00D7DD64 /* EditProfileFooter.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC4B1C90253F0B9C00D7DD64 /* EditProfileFooter.swift */; };
 		DCA3C73924FD2D2900E7D30B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCA3C73824FD2D2900E7D30B /* AppDelegate.swift */; };
 		DCA3C73B24FD2D2900E7D30B /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCA3C73A24FD2D2900E7D30B /* SceneDelegate.swift */; };
 		DCA3C73D24FD2D2900E7D30B /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCA3C73C24FD2D2900E7D30B /* ViewController.swift */; };
@@ -76,6 +77,7 @@
 		DC4B1C8A253C558600D7DD64 /* EditProfileHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditProfileHeader.swift; sourceTree = "<group>"; };
 		DC4B1C8C253C610900D7DD64 /* EditProfileViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditProfileViewModel.swift; sourceTree = "<group>"; };
 		DC4B1C8E253C61F300D7DD64 /* EditProfileCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditProfileCell.swift; sourceTree = "<group>"; };
+		DC4B1C90253F0B9C00D7DD64 /* EditProfileFooter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditProfileFooter.swift; sourceTree = "<group>"; };
 		DCA3C73524FD2D2900E7D30B /* TwitterTutorial.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TwitterTutorial.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DCA3C73824FD2D2900E7D30B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		DCA3C73A24FD2D2900E7D30B /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -148,6 +150,7 @@
 				DC2EE76325090E0600D2CAEA /* ProfileFilterCell.swift */,
 				DC4B1C8A253C558600D7DD64 /* EditProfileHeader.swift */,
 				DC4B1C8E253C61F300D7DD64 /* EditProfileCell.swift */,
+				DC4B1C90253F0B9C00D7DD64 /* EditProfileFooter.swift */,
 			);
 			path = Profile;
 			sourceTree = "<group>";
@@ -426,6 +429,7 @@
 				DC4B1C8D253C610900D7DD64 /* EditProfileViewModel.swift in Sources */,
 				DCA3C75B24FD33E200E7D30B /* ExploreController.swift in Sources */,
 				DCA3C77125023B4C00E7D30B /* UserService.swift in Sources */,
+				DC4B1C91253F0B9C00D7DD64 /* EditProfileFooter.swift in Sources */,
 				DCA3C76424FD588300E7D30B /* LoginController.swift in Sources */,
 				DC4B1C7825274CFA00D7DD64 /* UploadTweetViewModel.swift in Sources */,
 				DC4B1C7A252B1E6D00D7DD64 /* ActionSheetLauncher.swift in Sources */,
