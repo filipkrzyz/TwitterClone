@@ -32,16 +32,21 @@ struct NotificationService {
         
         guard let uid = Auth.auth().currentUser?.uid else { return }
         
-        REF_NOTIFICATIONS.child(uid).observe(.childAdded) { snapshot in
-            guard let dictionary = snapshot.value as? [String: AnyObject] else { return }
-            guard let uid = dictionary["uid"] as? String else { return }
-            
-            UserService.shared.fetchUser(uid: uid) { user in
-                let notification = Notification(user: user, dictionary: dictionary)
-                notifications.append(notification)
+        REF_NOTIFICATIONS.child(uid).observeSingleEvent(of: .value) { snapshot in
+            if !snapshot.exists() {
                 completion(notifications)
+            } else {
+                REF_NOTIFICATIONS.child(uid).observe(.childAdded) { snapshot in
+                    guard let dictionary = snapshot.value as? [String: AnyObject] else { return }
+                    guard let uid = dictionary["uid"] as? String else { return }
+                    
+                    UserService.shared.fetchUser(uid: uid) { user in
+                        let notification = Notification(user: user, dictionary: dictionary)
+                        notifications.append(notification)
+                        completion(notifications)
+                    }
+                }
             }
         }
-        
     }
 }
